@@ -4,11 +4,11 @@ public class Control {
 	private TV tv;
 	
 	public void turnOn() {
-		tv.estado = true;
+		this.tv.turnOn();
 	}
 	
 	public void turnOff() {
-		tv.estado = false;
+		this.tv.turnOff();
 	}
 	
 	public boolean getEstado() {
@@ -16,32 +16,26 @@ public class Control {
 	}
 	
 	public void canalUp() {
-		if (tv.canal < 120) {
-			tv.canal++;
-		}
+		this.tv.canalUp();
 	}
 	
 	public void canalDown() {
-		if (tv.canal > 1) {
-			tv.canal--;
-		}
+		this.tv.canalDown();
 	}
 	
 	public void volumenUp() {
-		if(tv.volumen < 7) {
-			tv.volumen++;
-		}
+		this.tv.volumenUp();
 	}
 	
 	public void volumenDown() {
-		if(tv.volumen > 0) {
-			tv.volumen--;
-		}
+		this.tv.volumenDown();
 	}
 	
 	public void setCanal(int canal) {
-		tv.canal = canal;
-	}
+		if ((canal >= 1 && canal <= 120) || this.tv.getEstado() == true) {
+			this.tv.setCanal(canal);
+		}
+	}	
 	
 	public void enlazar(TV tv) {
 		tv.control = this;
